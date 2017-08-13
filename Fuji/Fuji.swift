@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class Fuji {
+    
+    static let shared = Fuji()
+    
+    private var settings: FujiSettings?
+    
+    func start() throws {
+        settings = try FujiSettings.findSettingsFile()
+    }
+}

@@ -11,6 +11,9 @@
 		EB5811C21F40CCDE005FB795 /* FujiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5811C11F40CCDE005FB795 /* FujiTests.swift */; };
 		EB5811C41F40CCDE005FB795 /* Fuji.h in Headers */ = {isa = PBXBuildFile; fileRef = EB5811B61F40CCDE005FB795 /* Fuji.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EB5811CE1F40CCEA005FB795 /* Fuji.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5811CD1F40CCEA005FB795 /* Fuji.swift */; };
+		EB5811D01F40CE49005FB795 /* Fuji-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB5811CF1F40CE49005FB795 /* Fuji-Info.plist */; };
+		EB5811D21F40D15D005FB795 /* FujiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5811D11F40D15D005FB795 /* FujiError.swift */; };
+		EB5811D41F40D8F9005FB795 /* FujiSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5811D31F40D8F9005FB795 /* FujiSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,9 @@
 		EB5811C11F40CCDE005FB795 /* FujiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FujiTests.swift; sourceTree = "<group>"; };
 		EB5811C31F40CCDE005FB795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB5811CD1F40CCEA005FB795 /* Fuji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fuji.swift; sourceTree = "<group>"; };
+		EB5811CF1F40CE49005FB795 /* Fuji-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Fuji-Info.plist"; sourceTree = "<group>"; };
+		EB5811D11F40D15D005FB795 /* FujiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FujiError.swift; sourceTree = "<group>"; };
+		EB5811D31F40D8F9005FB795 /* FujiSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FujiSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,8 @@
 			children = (
 				EB5811B61F40CCDE005FB795 /* Fuji.h */,
 				EB5811CD1F40CCEA005FB795 /* Fuji.swift */,
+				EB5811D11F40D15D005FB795 /* FujiError.swift */,
+				EB5811D31F40D8F9005FB795 /* FujiSettings.swift */,
 				EB5811B71F40CCDE005FB795 /* Info.plist */,
 			);
 			path = Fuji;
@@ -85,6 +93,7 @@
 			children = (
 				EB5811C11F40CCDE005FB795 /* FujiTests.swift */,
 				EB5811C31F40CCDE005FB795 /* Info.plist */,
+				EB5811CF1F40CE49005FB795 /* Fuji-Info.plist */,
 			);
 			path = FujiTests;
 			sourceTree = "<group>";
@@ -190,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5811D01F40CE49005FB795 /* Fuji-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +210,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5811D21F40D15D005FB795 /* FujiError.swift in Sources */,
 				EB5811CE1F40CCEA005FB795 /* Fuji.swift in Sources */,
+				EB5811D41F40D8F9005FB795 /* FujiSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
