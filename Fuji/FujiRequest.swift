@@ -28,6 +28,7 @@ extension FujiRequest {
         let session = URLSession(configuration: .default)
         
         var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = self.method
         
         if let body = body, let data = try? JSONSerialization.data(withJSONObject: body) {

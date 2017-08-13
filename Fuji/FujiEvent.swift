@@ -9,7 +9,7 @@
 import Foundation
 
 public enum FujiEventType {
-    case contentView(name: String)
+    case contentView(page: String)
     case custom(name: String)
     
     var name: String {
@@ -18,15 +18,6 @@ public enum FujiEventType {
             return "Content View"
         case .custom:
             return "Custom"
-        }
-    }
-    
-    var id: String {
-        switch self {
-        case .contentView(let name):
-            return name
-        case .custom(let name):
-            return name
         }
     }
 }
@@ -40,11 +31,15 @@ public struct FujiEvent {
     }
     
     var dictionaryRepresentation: [String: Any] {
-        return [
-            "type": [
-                "name": type.name,
-                "id": type.id
-            ]
-        ]
+        var data: [String: Any] = ["name": type.name]
+        
+        switch type {
+        case .contentView(let page):
+            data["attributes"] = ["page": page]
+        case .custom(let name):
+            data["attributes"] = ["name": name]
+        }
+        
+        return data
     }
 }

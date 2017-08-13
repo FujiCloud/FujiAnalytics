@@ -27,7 +27,7 @@ class FujiTests: XCTestCase, FujiDelegate {
     func testEvent() {
         eventExpectation = expectation(description: "content view event")
         
-        let event = FujiEvent(type: .contentView(name: "Home"))
+        let event = FujiEvent(type: .contentView(page: "Home"))
         Fuji.shared.send(event: event)
         
         waitForExpectations(timeout: 10, handler: nil)
