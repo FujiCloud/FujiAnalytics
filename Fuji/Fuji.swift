@@ -8,9 +8,15 @@
 
 import Foundation
 
+public protocol FujiDelegate {
+    func sentEvent(event: FujiEvent, successfully success: Bool)
+}
+
 public class Fuji {
     
     public static let shared = Fuji()
+    
+    public var delegate: FujiDelegate?
     
     var settings: FujiSettings?
     
@@ -20,7 +26,7 @@ public class Fuji {
     
     public func send(event: FujiEvent) {
         EventRequest(event: event).start { success in
-            print("Event sent successfully? \(success ?? false)")
+            self.delegate?.sentEvent(event: event, successfully: success ?? false)
         }
     }
 }

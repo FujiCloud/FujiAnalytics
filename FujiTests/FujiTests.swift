@@ -9,20 +9,33 @@
 import XCTest
 import Fuji
 
-class FujiTests: XCTestCase {
+class FujiTests: XCTestCase, FujiDelegate {
+    
+    private var eventExpectation: XCTestExpectation?
     
     override func setUp() {
         super.setUp()
         
         do {
             try Fuji.shared.start()
+            Fuji.shared.delegate = self
         } catch {
             XCTFail()
         }
     }
     
     func testEvent() {
+        eventExpectation = expectation(description: "content view event")
+        
         let event = FujiEvent(type: .contentView(name: "Home"))
         Fuji.shared.send(event: event)
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    // MARK: - FujiDelegate Methods
+    
+    func sentEvent(event: FujiEvent, successfully success: Bool) {
+        eventExpectation?.fulfill()
     }
 }
