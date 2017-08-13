@@ -8,13 +8,19 @@
 
 import Foundation
 
-class Fuji {
+public class Fuji {
     
-    static let shared = Fuji()
+    public static let shared = Fuji()
     
-    private var settings: FujiSettings?
+    var settings: FujiSettings?
     
-    func start() throws {
+    public func start() throws {
         settings = try FujiSettings.findSettingsFile()
+    }
+    
+    public func send(event: FujiEvent) {
+        EventRequest(event: event).start { success in
+            print("Event sent successfully? \(success ?? false)")
+        }
     }
 }

@@ -7,16 +7,22 @@
 //
 
 import XCTest
-@testable import Fuji
+import Fuji
 
 class FujiTests: XCTestCase {
     
-    /// Test starting Fuji
-    func testStart() {
+    override func setUp() {
+        super.setUp()
+        
         do {
             try Fuji.shared.start()
         } catch {
             XCTFail()
         }
+    }
+    
+    func testEvent() {
+        let event = FujiEvent(type: .contentView(name: "Home"))
+        Fuji.shared.send(event: event)
     }
 }
