@@ -36,6 +36,11 @@ class FujiTests: XCTestCase, FujiDelegate {
     // MARK: - FujiDelegate Methods
     
     func sentEvent(event: FujiEvent, successfully success: Bool) {
+        guard success == true else {
+            XCTFail()
+            return
+        }
+        
         eventExpectation?.fulfill()
     }
 }

@@ -16,30 +16,32 @@ public enum FujiEventType {
         switch self {
         case .contentView:
             return "Content View"
-        case .custom:
-            return "Custom"
+        case .custom(let name):
+            return name
         }
     }
 }
 
 public struct FujiEvent {
     
+    let attributes: [String: Any]
     let type: FujiEventType
     
-    public init(type: FujiEventType) {
+    public init(type: FujiEventType, attributes: [String: Any] = [String: Any]()) {
         self.type = type
+        self.attributes = attributes
     }
     
     var dictionaryRepresentation: [String: Any] {
-        var data: [String: Any] = ["name": type.name]
+        var attributes = self.attributes
         
         switch type {
         case .contentView(let page):
-            data["attributes"] = ["page": page]
-        case .custom(let name):
-            data["attributes"] = ["name": name]
+            attributes["page"] = page
+        default:
+            break
         }
         
-        return data
+        return ["name": type.name, "attributes": attributes]
     }
 }
