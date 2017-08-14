@@ -37,13 +37,14 @@ extension FujiRequest {
     ///
     /// - Parameter completion: Block that fires when the request finishes with the expected returned data.
     func start(completion: @escaping (Value?) -> Void) {
-        guard let url = Fuji.shared.settings?.baseURL.appendingPathComponent(endpoint) else {
+        guard let key = Fuji.shared.settings?.key, let url = Fuji.shared.settings?.baseURL.appendingPathComponent(endpoint) else {
             return
         }
         
         let session = URLSession(configuration: .default)
         
         var request = URLRequest(url: url)
+        request.addValue(key, forHTTPHeaderField: "Authorization")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = self.method
         
