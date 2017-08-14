@@ -8,30 +8,26 @@
 
 import Foundation
 
-public enum FujiEventType {
-    case contentView(page: String)
-    case custom(name: String)
-    
-    var name: String {
-        switch self {
-        case .contentView:
-            return "Content View"
-        case .custom(let name):
-            return name
-        }
-    }
-}
-
+/// An event that can be sent to Fuji.
 public struct FujiEvent {
     
+    /// The attributes of this event.
     let attributes: [String: Any]
+    
+    /// The type of this event.
     let type: FujiEventType
     
+    /// Creates an event.
+    ///
+    /// - Parameters:
+    ///   - type: The type of event.
+    ///   - attributes: Any custom attributes that you wish to send with this event.
     public init(type: FujiEventType, attributes: [String: Any] = [String: Any]()) {
         self.type = type
         self.attributes = attributes
     }
     
+    /// A dictionary representation of this event. Will be converted to JSON later.
     var dictionaryRepresentation: [String: Any] {
         var attributes = self.attributes
         

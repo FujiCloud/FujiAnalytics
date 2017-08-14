@@ -11,13 +11,14 @@
 		EB5811C21F40CCDE005FB795 /* FujiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5811C11F40CCDE005FB795 /* FujiTests.swift */; };
 		EB5811D01F40CE49005FB795 /* Fuji-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB5811CF1F40CE49005FB795 /* Fuji-Info.plist */; };
 		EB5E7B401F412FC800896DE3 /* Fuji.h in Headers */ = {isa = PBXBuildFile; fileRef = EB5E7B3E1F412FC800896DE3 /* Fuji.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB5E7B411F412FC800896DE3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB5E7B3F1F412FC800896DE3 /* Info.plist */; };
 		EB5E7B461F41301B00896DE3 /* EventRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E7B441F41301B00896DE3 /* EventRequest.swift */; };
 		EB5E7B471F41301B00896DE3 /* FujiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E7B451F41301B00896DE3 /* FujiRequest.swift */; };
 		EB5E7B4B1F41302400896DE3 /* FujiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E7B491F41302400896DE3 /* FujiError.swift */; };
 		EB5E7B4C1F41302400896DE3 /* FujiEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E7B4A1F41302400896DE3 /* FujiEvent.swift */; };
 		EB5E7B4F1F41302800896DE3 /* Fuji.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E7B4D1F41302800896DE3 /* Fuji.swift */; };
 		EB5E7B521F41303B00896DE3 /* FujiSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E7B511F41303B00896DE3 /* FujiSettings.swift */; };
+		EB5E7B541F4132F200896DE3 /* FujiEventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E7B531F4132F200896DE3 /* FujiEventType.swift */; };
+		EB5E7B561F41349D00896DE3 /* FujiDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5E7B551F41349D00896DE3 /* FujiDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		EB5E7B4A1F41302400896DE3 /* FujiEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FujiEvent.swift; path = Common/Models/FujiEvent.swift; sourceTree = "<group>"; };
 		EB5E7B4D1F41302800896DE3 /* Fuji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fuji.swift; path = Common/Fuji.swift; sourceTree = "<group>"; };
 		EB5E7B511F41303B00896DE3 /* FujiSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FujiSettings.swift; path = Common/Models/FujiSettings.swift; sourceTree = "<group>"; };
+		EB5E7B531F4132F200896DE3 /* FujiEventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FujiEventType.swift; sourceTree = "<group>"; };
+		EB5E7B551F41349D00896DE3 /* FujiDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FujiDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				EB5E7B4D1F41302800896DE3 /* Fuji.swift */,
+				EB5E7B551F41349D00896DE3 /* FujiDelegate.swift */,
 				EB5E7B481F41301D00896DE3 /* Models */,
 			);
 			name = Common;
@@ -136,6 +140,7 @@
 				EB5E7B511F41303B00896DE3 /* FujiSettings.swift */,
 				EB5E7B491F41302400896DE3 /* FujiError.swift */,
 				EB5E7B4A1F41302400896DE3 /* FujiEvent.swift */,
+				EB5E7B531F4132F200896DE3 /* FujiEventType.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -234,7 +239,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB5E7B411F412FC800896DE3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,11 +257,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5E7B541F4132F200896DE3 /* FujiEventType.swift in Sources */,
 				EB5E7B461F41301B00896DE3 /* EventRequest.swift in Sources */,
 				EB5E7B4B1F41302400896DE3 /* FujiError.swift in Sources */,
 				EB5E7B521F41303B00896DE3 /* FujiSettings.swift in Sources */,
 				EB5E7B4C1F41302400896DE3 /* FujiEvent.swift in Sources */,
 				EB5E7B471F41301B00896DE3 /* FujiRequest.swift in Sources */,
+				EB5E7B561F41349D00896DE3 /* FujiDelegate.swift in Sources */,
 				EB5E7B4F1F41302800896DE3 /* Fuji.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
