@@ -33,6 +33,17 @@ protocol FujiRequest {
 
 extension FujiRequest {
     
+    /// A UserDefaults-friendly encoding of this request.
+    var encoded: [String: Any] {
+        var data: [String: Any] = ["id": UUID().uuidString, "endpoint": endpoint, "method": method]
+        
+        if let body = body {
+            data["body"] = body
+        }
+        
+        return data
+    }
+    
     /// Begins to execute the request.
     ///
     /// - Parameter completion: Block that fires when the request finishes with the expected returned data.
@@ -62,5 +73,10 @@ extension FujiRequest {
         }
         
         task.resume()
+    }
+    
+    /// Queue this request to be executed later.
+    func queue() {
+        FujiUserDefaults.append(encoded, toArray: .queuedRequests)
     }
 }

@@ -32,7 +32,10 @@ public class Fuji {
     public func start() throws {
         settings = try FujiSettings.findSettingsFile()
         
+        initializeDefaults()
         startSession()
+        
+        SavedFujiRequest.executeQueuedRequests()
         
         NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground(_:)), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground(_:)), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
@@ -49,12 +52,20 @@ public class Fuji {
     
     // MARK: - Private Methods
     
+    private func initializeDefaults() {
+        guard !FujiUserDefaults.bool(forKey: .defaultsConfigured) else {
+            return
+        }
+        
+        FujiUserDefaults.setDefaultValues()
+    }
+    
     private func startSession() {
         SessionRequest().start()
     }
     
-    public func endSession() {
-        SessionUpdateRequest(id: 1, duration: 1).start()
+    private func endSession() {
+        SessionUpdateRequest(id: 1, duration: 1).queue()
     }
     
     // MARK: - Notifications
