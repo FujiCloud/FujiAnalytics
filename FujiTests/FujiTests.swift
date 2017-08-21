@@ -24,6 +24,13 @@ class FujiTests: XCTestCase, FujiDelegate {
         }
     }
     
+    override func tearDown() {
+        // This is kind of a hack, simulates exiting the app to test session queuing
+        NotificationCenter.default.post(name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
+        
+        super.tearDown()
+    }
+    
     func testEvent() {
         eventExpectation = expectation(description: "content view event")
         
