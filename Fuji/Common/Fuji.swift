@@ -53,8 +53,8 @@ public class Fuji {
         SessionRequest().start()
     }
     
-    private func endSession() {
-        
+    public func endSession() {
+        SessionUpdateRequest(id: 1, duration: 1).start()
     }
     
     // MARK: - Notifications

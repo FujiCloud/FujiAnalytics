@@ -29,6 +29,7 @@ class FujiTests: XCTestCase, FujiDelegate {
         
         let event = FujiEvent(type: .contentView(page: "Home"))
         Fuji.shared.send(event: event)
+        Fuji.shared.endSession()
         
         waitForExpectations(timeout: 10, handler: nil)
     }

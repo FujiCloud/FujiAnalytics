@@ -9,7 +9,7 @@
 import Foundation
 
 /// A session of usage of the app.
-public struct FujiSession {
+struct FujiSession {
     
     /// The id of this session.
     let id: Int?
@@ -24,11 +24,34 @@ public struct FujiSession {
     let createdAt: Date
     
     /// Starts a session.
-    public init() {
+    init() {
         id = nil
         userId = 1
         duration = nil
         createdAt = Date()
+    }
+    
+    /// Creates a session object.
+    ///
+    /// - Parameter data: A dictionary that represents this session.
+    /// - Throws: Throws an error if the data dictionary doesn't have the correct keys.
+    init(data: [String: Any]) throws {
+        guard let id = data["id"] as? Int, let userId = data["user_id"] as? Int, let createdAtString = data["created_at"] as? String else {
+            throw FujiError.invalidArguments
+        }
+        
+        self.id = id
+        self.userId = userId
+        self.duration = data["duration"] as? Int
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        
+        guard let createdAt = formatter.date(from: createdAtString) else {
+            throw FujiError.invalidArguments
+        }
+        
+        self.createdAt = createdAt
     }
     
     /// A dictionary representation of this session.
