@@ -61,6 +61,7 @@ struct FujiSession {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         guard let createdAt = formatter.date(from: createdAtString) else {
             throw FujiError.invalidArguments
@@ -73,6 +74,7 @@ struct FujiSession {
     var dictionaryRepresentation: [String: Any] {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         var data: [String: Any] = ["user_id": userId, "created_at": formatter.string(from: createdAt)]
         

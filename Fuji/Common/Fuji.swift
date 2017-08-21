@@ -91,6 +91,7 @@ public class Fuji {
     }
     
     @objc private func willEnterForeground(_ notification: Notification) {
+        executeQueuedRequests()
         startSession()
     }
 }
