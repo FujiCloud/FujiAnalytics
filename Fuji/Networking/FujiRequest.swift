@@ -28,7 +28,7 @@ protocol FujiRequest {
     /// - Parameters:
     ///   - data: The response data, converted to either an array or dictionary
     ///   - completion: The completion block that was passed in the start method
-    func handleRequest(_ data: Any?, _ completion: @escaping (Value?) -> Void)
+    func handleRequest(_ data: Any?, _ completion: ((Value?) -> Void)?)
 }
 
 extension FujiRequest {
@@ -36,7 +36,7 @@ extension FujiRequest {
     /// Begins to execute the request.
     ///
     /// - Parameter completion: Block that fires when the request finishes with the expected returned data.
-    func start(completion: @escaping (Value?) -> Void) {
+    func start(completion: ((Value?) -> Void)? = nil) {
         guard let key = Fuji.shared.settings?.key, let url = Fuji.shared.settings?.baseURL.appendingPathComponent(endpoint) else {
             return
         }

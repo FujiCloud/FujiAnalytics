@@ -27,7 +27,7 @@ public struct FujiEvent {
         self.attributes = attributes
     }
     
-    /// A dictionary representation of this event. Will be converted to JSON later.
+    /// A dictionary representation of this event.
     var dictionaryRepresentation: [String: Any] {
         var attributes = self.attributes
         

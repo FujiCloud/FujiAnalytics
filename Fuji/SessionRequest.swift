@@ -1,33 +1,37 @@
 //
-//  EventRequest.swift
+//  SessionRequest.swift
 //  Fuji
 //
-//  Created by Jack Cook on 8/13/17.
+//  Created by Jack Cook on 8/20/17.
 //  Copyright © 2017 Fuji. All rights reserved.
 //
 
-/// Sends an event to Fuji.
-class EventRequest: FujiRequest {
+/// Sends details about a session to Fuji.
+class SessionRequest: FujiRequest {
     
     // MARK: - Request Configuration
     
     typealias Value = Bool
     
     var body: Any? {
-        return event.dictionaryRepresentation
+        return session.dictionaryRepresentation
     }
     
-    var endpoint = "/events"
+    var endpoint = "/sessions"
     var method = "POST"
     
     // MARK: - Properties
     
-    private let event: FujiEvent
+    private let session: FujiSession
     
     // MARK: - Initialization
     
-    init(event: FujiEvent) {
-        self.event = event
+    init() {
+        self.session = FujiSession()
+    }
+    
+    init(session: FujiSession) {
+        self.session = session
     }
     
     // MARK: - Request Handling
