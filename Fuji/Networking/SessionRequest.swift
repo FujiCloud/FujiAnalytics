@@ -11,7 +11,7 @@ class SessionRequest: FujiRequest {
     
     // MARK: - Request Configuration
     
-    typealias Value = Bool
+    typealias Value = FujiSession
     
     var body: Any? {
         return session.dictionaryRepresentation
@@ -36,12 +36,16 @@ class SessionRequest: FujiRequest {
     
     // MARK: - Request Handling
     
-    func handleRequest(_ data: Any?, _ completion: ((Bool?) -> Void)?) {
-        guard let _ = data as? [String: Any] else {
-            completion?(false)
+    func handleRequest(_ data: Any?, _ completion: ((FujiSession?) -> Void)?) {
+        guard let data = data as? [String: Any] else {
+            completion?(nil)
             return
         }
         
-        completion?(true)
+        do {
+            completion?(try FujiSession(data: data))
+        } catch {
+            completion?(nil)
+        }
     }
 }

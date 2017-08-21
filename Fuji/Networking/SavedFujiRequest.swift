@@ -72,17 +72,4 @@ class SavedFujiRequest: FujiRequest {
         
         FujiUserDefaults.remove(at: index, fromArray: .queuedRequests)
     }
-    
-    // MARK: - Static Methods
-    
-    /// Executes all queued requests.
-    static func executeQueuedRequests() {
-        guard let requests = FujiUserDefaults.savedRequestsArray(forKey: .queuedRequests) else {
-            return
-        }
-        
-        for request in requests {
-            request.start()
-        }
-    }
 }

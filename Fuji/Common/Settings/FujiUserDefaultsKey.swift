@@ -8,6 +8,7 @@
 
 enum FujiUserDefaultsKey: String {
     case defaultsConfigured
+    case currentSession
     case queuedRequests
     
     var value: String {

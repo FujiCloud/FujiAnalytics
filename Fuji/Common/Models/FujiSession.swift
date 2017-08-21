@@ -11,6 +11,21 @@ import Foundation
 /// A session of usage of the app.
 struct FujiSession {
     
+    /// The current session, if there is one.
+    static var current: FujiSession? {
+        get {
+            return FujiUserDefaults.session(forKey: .currentSession)
+        }
+        
+        set {
+            if let session = newValue {
+                FujiUserDefaults.set(session, forKey: .currentSession)
+            } else {
+                FujiUserDefaults.removeObject(forKey: .currentSession)
+            }
+        }
+    }
+    
     /// The id of this session.
     let id: Int?
     
