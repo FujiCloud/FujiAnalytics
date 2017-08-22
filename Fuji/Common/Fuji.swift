@@ -33,6 +33,7 @@ public class Fuji {
         settings = try FujiSettings.findSettingsFile()
         
         initializeDefaults()
+        initializeUser()
         executeQueuedRequests()
         startSession()
         
@@ -49,6 +50,12 @@ public class Fuji {
         }
     }
     
+    // MARK: - Internal Methods
+    
+    func update(user: FujiUser) {
+        executeQueuedRequests()
+    }
+    
     // MARK: - Private Methods
     
     private func initializeDefaults() {
@@ -57,6 +64,14 @@ public class Fuji {
         }
         
         FujiUserDefaults.setDefaultValues()
+    }
+    
+    private func initializeUser() {
+        guard FujiUser.current == nil else {
+            return
+        }
+        
+        FujiUser.createNewUser()
     }
     
     private func executeQueuedRequests() {

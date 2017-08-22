@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB2FEC3A1F4C88DF00780612 /* FujiUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FEC391F4C88DF00780612 /* FujiUser.swift */; };
+		EB2FEC3C1F4C8D1300780612 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2FEC3B1F4C8D1300780612 /* UserRequest.swift */; };
 		EB5811BD1F40CCDE005FB795 /* Fuji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5811B31F40CCDE005FB795 /* Fuji.framework */; };
 		EB5811C21F40CCDE005FB795 /* FujiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5811C11F40CCDE005FB795 /* FujiTests.swift */; };
 		EB5811D01F40CE49005FB795 /* Fuji-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB5811CF1F40CE49005FB795 /* Fuji-Info.plist */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB2FEC391F4C88DF00780612 /* FujiUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FujiUser.swift; path = Common/Models/FujiUser.swift; sourceTree = "<group>"; };
+		EB2FEC3B1F4C8D1300780612 /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		EB5811B31F40CCDE005FB795 /* Fuji.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fuji.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5811BC1F40CCDE005FB795 /* FujiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FujiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB5811C11F40CCDE005FB795 /* FujiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FujiTests.swift; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				EB7026F71F4A8E2C005A7506 /* SavedFujiRequest.swift */,
 				EB7026EC1F4A8719005A7506 /* SessionRequest.swift */,
 				EB7026ED1F4A8719005A7506 /* SessionUpdateRequest.swift */,
+				EB2FEC3B1F4C8D1300780612 /* UserRequest.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				EB5E7B4A1F41302400896DE3 /* FujiEvent.swift */,
 				EB5E7B571F41358D00896DE3 /* FujiEventType.swift */,
 				EB7026F01F4A8721005A7506 /* FujiSession.swift */,
+				EB2FEC391F4C88DF00780612 /* FujiUser.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -287,12 +293,14 @@
 				EB7026F81F4A8E2C005A7506 /* SavedFujiRequest.swift in Sources */,
 				EB7026F61F4A8795005A7506 /* FujiUserDefaultsKey.swift in Sources */,
 				EB5E7B461F41301B00896DE3 /* EventRequest.swift in Sources */,
+				EB2FEC3C1F4C8D1300780612 /* UserRequest.swift in Sources */,
 				EB5E7B4B1F41302400896DE3 /* FujiError.swift in Sources */,
 				EB5E7B521F41303B00896DE3 /* FujiSettings.swift in Sources */,
 				EB7026EE1F4A8719005A7506 /* SessionRequest.swift in Sources */,
 				EB5E7B4C1F41302400896DE3 /* FujiEvent.swift in Sources */,
 				EB5E7B471F41301B00896DE3 /* FujiRequest.swift in Sources */,
 				EB5E7B5A1F41359300896DE3 /* FujiDelegate.swift in Sources */,
+				EB2FEC3A1F4C88DF00780612 /* FujiUser.swift in Sources */,
 				EB5E7B4F1F41302800896DE3 /* Fuji.swift in Sources */,
 				EB7026F11F4A8721005A7506 /* FujiSession.swift in Sources */,
 				EB7026F41F4A8786005A7506 /* FujiUserDefaults.swift in Sources */,

@@ -30,7 +30,7 @@ struct FujiSession {
     let id: Int?
     
     /// The id of the user that this session belongs to.
-    let userId: Int
+    let userId: Int?
     
     /// The duration of this session, in seconds.
     let duration: Int?
@@ -41,7 +41,7 @@ struct FujiSession {
     /// Starts a session.
     init() {
         id = nil
-        userId = 1
+        userId = nil
         duration = nil
         createdAt = Date()
     }
@@ -51,12 +51,12 @@ struct FujiSession {
     /// - Parameter data: A dictionary that represents this session.
     /// - Throws: Throws an error if the data dictionary doesn't have the correct keys.
     init(data: [String: Any]) throws {
-        guard let id = data["id"] as? Int, let userId = data["user_id"] as? Int, let createdAtString = data["created_at"] as? String else {
+        guard let id = data["id"] as? Int, let createdAtString = data["created_at"] as? String else {
             throw FujiError.invalidArguments
         }
         
         self.id = id
-        self.userId = userId
+        self.userId = data["user_id"] as? Int
         self.duration = data["duration"] as? Int
         
         let formatter = DateFormatter()
@@ -76,10 +76,14 @@ struct FujiSession {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
-        var data: [String: Any] = ["user_id": userId, "created_at": formatter.string(from: createdAt)]
+        var data: [String: Any] = ["created_at": formatter.string(from: createdAt)]
         
         if let id = id {
             data["id"] = id
+        }
+        
+        if let userId = userId {
+            data["user_id"] = userId
         }
         
         if let duration = duration {

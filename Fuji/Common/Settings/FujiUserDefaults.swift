@@ -41,6 +41,14 @@ class FujiUserDefaults: UserDefaults {
         return try? FujiSession(data: data)
     }
     
+    static func user(forKey defaultName: FujiUserDefaultsKey) -> FujiUser? {
+        guard let data = standard.object(forKey: defaultName.value) as? [String: Any] else {
+            return nil
+        }
+        
+        return try? FujiUser(data: data)
+    }
+    
     static func removeObject(forKey defaultName: FujiUserDefaultsKey) {
         standard.removeObject(forKey: defaultName.value)
     }
@@ -66,6 +74,10 @@ class FujiUserDefaults: UserDefaults {
     }
     
     static func set(_ value: FujiSession, forKey defaultName: FujiUserDefaultsKey) {
+        standard.set(value.dictionaryRepresentation, forKey: defaultName.value)
+    }
+    
+    static func set(_ value: FujiUser, forKey defaultName: FujiUserDefaultsKey) {
         standard.set(value.dictionaryRepresentation, forKey: defaultName.value)
     }
 }

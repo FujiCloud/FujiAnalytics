@@ -48,6 +48,11 @@ extension FujiRequest {
     ///
     /// - Parameter completion: Block that fires when the request finishes with the expected returned data.
     func start(completion: ((Value?) -> Void)? = nil) {
+        guard FujiUser.current != nil || self is UserRequest else {
+            queue()
+            return
+        }
+        
         guard let key = Fuji.shared.settings?.key, let url = Fuji.shared.settings?.baseURL.appendingPathComponent(endpoint) else {
             return
         }
