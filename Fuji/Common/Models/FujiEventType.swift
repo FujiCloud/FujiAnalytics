@@ -15,6 +15,9 @@ import Foundation
 public enum FujiEventType {
     case contentView(page: String)
     case custom(name: String)
+    case login(success: Bool)
+    case registration(success: Bool)
+    case search(query: String)
     
     /// The name of the event.
     var name: String {
@@ -23,6 +26,12 @@ public enum FujiEventType {
             return "Content View"
         case .custom(let name):
             return name
+        case .login:
+            return "Login"
+        case .registration:
+            return "Registration"
+        case .search:
+            return "Search"
         }
     }
 }

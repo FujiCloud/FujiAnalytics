@@ -34,8 +34,14 @@ public struct FujiEvent {
         switch type {
         case .contentView(let page):
             attributes["page"] = page
-        default:
+        case .custom:
             break
+        case .login(let success):
+            attributes["success"] = success
+        case .registration(let success):
+            attributes["success"] = success
+        case .search(let query):
+            attributes["query"] = query
         }
         
         return ["name": type.name, "attributes": attributes]

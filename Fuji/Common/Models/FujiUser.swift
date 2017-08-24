@@ -113,7 +113,6 @@ struct FujiUser {
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         
         var data: [String: Any] = [
-            "id": id,
             "os": os,
             "device": device,
             "voiceover": voiceover,
